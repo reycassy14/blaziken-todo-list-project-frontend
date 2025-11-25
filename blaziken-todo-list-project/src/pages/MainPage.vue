@@ -68,24 +68,31 @@
 
         <!-- Input -->
         <div class="flex gap-2 sm:gap-3 mb-4 sm:mb-6">
+          <div class="flex flex-col w-full">
+            <input
+            type="text"
+            class="flex-1 bg-[#0d0d14] border border-gray-700/50 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 transition-colors"
+            placeholder="Add a new task"
+          >
           <input
             type="text"
             class="flex-1 bg-[#0d0d14] border border-gray-700/50 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none focus:border-red-500/50 transition-colors"
-            placeholder="Add a new task — everything is placeholder"
-          >
+            placeholder="Add a new description"
+          ></div>
+          
           <button class="bg-gradient-to-r from-[#f6b246] to-[#e85d04] text-white px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base cursor-pointer hover:from-[#f6b246] hover:to-[#f6b246] transition-all">Add</button>
         </div>
 
         <!-- Task List -->
         <div class="space-y-2 sm:space-y-3">
           <!-- Task 1 -->
-          <div class="bg-[#0d0d14]/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-700/30 hover:border-red-900/50 transition-colors">
+          <div v-for="(item, index) in tasks" :key="index" class="bg-[#0d0d14]/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-700/30 hover:border-red-900/50 transition-colors ">
             <div class="flex justify-between items-center gap-2">
               <div class="flex items-center gap-3 sm:gap-4 min-w-0">
                 <div class="w-4 h-4 sm:w-5 sm:h-5 border-2 border-gray-600 rounded cursor-pointer hover:border-[#f6b246] transition-colors flex-shrink-0"></div>
                 <div class="min-w-0">
-                  <p class="text-white font-medium text-sm sm:text-base truncate">Design hero section</p>
-                  <p class="text-gray-400 text-xs sm:text-sm truncate">Create responsive hero with CTA</p>
+                  <p class="text-white font-medium text-sm sm:text-base truncate">{{ item.title }}</p>
+                  <p class="text-gray-400 text-xs sm:text-sm truncate">{{ item.description }}</p>
                 </div>
               </div>
               <div class="flex gap-2 sm:gap-3 flex-shrink-0">
@@ -96,7 +103,7 @@
           </div>
 
           <!-- Task 2 -->
-          <div class="bg-[#0d0d14]/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-700/30 hover:border-red-900/50 transition-colors">
+          <!-- <div class="bg-[#0d0d14]/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-700/30 hover:border-red-900/50 transition-colors">
             <div class="flex justify-between items-center gap-2">
               <div class="flex items-center gap-3 sm:gap-4 min-w-0">
                 <div class="w-4 h-4 sm:w-5 sm:h-5 border-2 border-gray-600 rounded cursor-pointer hover:border-[#f6b246] transition-colors flex-shrink-0"></div>
@@ -110,10 +117,10 @@
                 <button class="text-gray-500 hover:text-red-400 text-xs sm:text-sm cursor-pointer transition-colors">Del</button>
               </div>
             </div>
-          </div>
+          </div> -->
 
           <!-- Task 3 - Completed -->
-          <div class="bg-[#0d0d14]/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-700/30 hover:border-red-900/50 transition-colors opacity-60">
+          <!-- <div class="bg-[#0d0d14]/50 rounded-lg sm:rounded-xl p-3 sm:p-4 border border-gray-700/30 hover:border-red-900/50 transition-colors opacity-60">
             <div class="flex justify-between items-center gap-2">
               <div class="flex items-center gap-3 sm:gap-4 min-w-0">
                 <div class="w-4 h-4 sm:w-5 sm:h-5 border-2 border-[#f6b246] bg-[#f6b246]/20 rounded flex items-center justify-center cursor-pointer flex-shrink-0">
@@ -131,7 +138,7 @@
                 <button class="text-gray-600 text-xs sm:text-sm cursor-pointer">Del</button>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
